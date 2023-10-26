@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+// @EnableEurekaClient => yeni versiyonda gerekmiyor..
 public class OrderserviceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(OrderserviceApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(OrderserviceApplication.class, args);
+  }
 }
