@@ -13,7 +13,7 @@ public class OrderManager implements OrderService {
   private final WebClient webClient;
 
   public OrderManager(WebClient.Builder webClientBuilder) {
-    this.webClient = webClientBuilder.baseUrl("http://localhost:8083").build();
+    this.webClient = webClientBuilder.baseUrl("http://product-service").build();
   }
 
   public List<ResponseForSubmitOrder> submitOrder(List<CreateOrderRequest> requests) {
