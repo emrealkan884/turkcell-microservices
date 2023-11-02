@@ -21,4 +21,10 @@ public class Order {
 
   @Column(name = "order_date")
   private LocalDate orderDate;
+
+  @Column(name = "inventory_code")
+  private String inventoryCode;
+
+  @Column(name = "amount")
+  private int amount;
 }

@@ -2,7 +2,6 @@ package com.turkcell.productservice.services;
 
 import com.turkcell.productservice.dto.requests.CreateProductRequest;
 import com.turkcell.productservice.dto.responses.CreatedProductResponse;
-import com.turkcell.productservice.dto.responses.ResponseForSubmitOrder;
 import com.turkcell.productservice.entities.Product;
 import com.turkcell.productservice.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -32,22 +31,21 @@ public class ProductManager implements ProductService {
   }
 
   @Override
-  public ResponseForSubmitOrder getByInventoryCode(String code, int amount) {
-
-    Boolean hasStock = true;
-
+  public Boolean getByInventoryCode(String code, int requiredStock) {
+    // Direkt query çalıştırmak
+    /* List<Product> allProducts = productRepository.findAll();
+    Optional<Product> product = allProducts
+            .stream()
+            .filter((p) -> p.getInventoryCode().equals(code))
+            .findFirst(); */
     Product product = productRepository.findByInventoryCodeQuery(code);
+    if (product == null || product.getStock() < requiredStock) return false;
+    return true;
+  }
 
-    if (product == null || product.getStock() < amount) {
-      hasStock = false;
-    }
-    ResponseForSubmitOrder response =
-        ResponseForSubmitOrder.builder()
-            .inventoryCode(product.getInventoryCode())
-            .stockAmount(product.getStock())
-            .hasStock(hasStock)
-            .build();
-
-    return response;
+  @Override
+  public Integer findByStock(String invCode) {
+    Product product = productRepository.findByInventoryCodeQuery(invCode);
+    return product.getStock();
   }
 }
