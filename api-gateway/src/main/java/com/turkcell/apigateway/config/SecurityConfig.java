@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.reactive.EnableWebFlux
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
+// Keycloak i dahil etmek icin.
 @Configuration
 @EnableWebFluxSecurity
 public class SecurityConfig {
