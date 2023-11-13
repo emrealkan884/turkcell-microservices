@@ -48,12 +48,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.turkcell</groupId> <!-- product-service'nin groupId'si -->
-            <artifactId>productservice</artifactId>
-            <version>0.0.1-SNAPSHOT</version> <!-- product-service'nin sürümü -->
-        </dependency>
-
-        <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>2.0.2</version>

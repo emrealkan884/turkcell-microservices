@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-// @EnableEurekaClient => yeni versiyonda gerekmiyor..
+// @EnableDiscoveryClient
 public class ProductserviceApplication {
 
   public static void main(String[] args) {
