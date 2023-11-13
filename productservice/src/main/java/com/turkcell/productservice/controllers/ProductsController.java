@@ -15,7 +15,7 @@ public class ProductsController {
   private final ProductService productService;
   private final KafkaTemplate<String, String> kafkaTemplate;
 
-  @PostMapping
+  @PostMapping("/add")
   @ResponseStatus(HttpStatus.CREATED)
   public CreatedProductResponse add(@RequestBody CreateProductRequest request) {
     return productService.add(request);
@@ -27,7 +27,7 @@ public class ProductsController {
     return productService.getByInventoryCode(invCode, requiredStock);
   }
 
-  @GetMapping("deneme")
+  @GetMapping("/deneme")
   public String deneme() {
     return "Deneme";
   }

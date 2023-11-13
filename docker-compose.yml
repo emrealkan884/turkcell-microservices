@@ -3,20 +3,20 @@ services:
     image: api-gateway
     ports:
       - 9999:9999
-    depends_on:
-      - discovery-service
     environment:
       - eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka
+    depends_on:
+      - discovery-service
 
   product-service:
     image: product-service
     ports:
       - 6001:6001
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka
     depends_on:
       - mongodb
       - discovery-service
-    environment:
-      - eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka
 
   discovery-service:
     image: discoveryserver
